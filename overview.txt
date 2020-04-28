@@ -1,0 +1,34 @@
+Prerequisites
+- install AWS CLI
+- install Terraform
+- install Kubernetes
+- install kubectl
+- install kubectx (optional)
+- install kubens (optional)
+- install argocd
+- install argo-rollouts (optional)
+
+AWS Landing Zone (via Terraform and terraform-aws-modules/vpc/aws module)
+- us-east-2
+- VPC
+- 2 Public Subnet Groups and AZs
+- 2 Private Subnet Groups and AZs
+
+EKS cluster (via Terraform and terraform-aws-modules/eks/aws module)
+- 1 autoscaling group + 1 launch config in across public subnets
+- minimum of 2 (max of 5) t2.medium worker nodes spread across subnets
+- configmap - basic setup for one admin user
+
+Interact with EKS cluster
+- update context to desired AWS cluster
+- ensure correct user is in PATH `export AWS_PROFILE=user_profile`
+- check kubectl functionality
+
+Extras
+- AWS K8s dashboard
+- argocd dashboard
+
+Demo
+- basic deployment
+- canary
+- bluegreen
